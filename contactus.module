@@ -158,10 +158,10 @@
 	$query = "SELECT lane,area,city,telno FROM {contactus}";
 	$result = db_query($query);
 	$data = db_fetch_object($result);
-	$lane = $data->lane;
-	$area = $data->area;
-	$city = $data->city;
-	$telno = $data->telno;
+	$lane = check_plain($data->lane);
+	$area = check_plain($data->area);
+	$city = check_plain($data->city);
+	$telno = check_plain($data->telno);
 	$message = '<b>' . t('Our Address') . '</b>' . '<br/>' . $lane . '<br/>' . $area . '<br/>' . $city . '<br/>' . $telno . '<br/><br/>' . '<b>' . t('Quick Contact') . '</b>'. contactus_form();
 	return $message;
 
